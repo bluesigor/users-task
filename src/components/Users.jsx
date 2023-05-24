@@ -2,11 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../store/usersSlice/usersSlice";
 import User from "./User";
+import { initializeFacebookSdk } from "../functions";
 
 const Users = () => {
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.users);
-
+  useEffect(() => {
+    initializeFacebookSdk();
+  }, []);
   useEffect(() => {
     dispatch(getUsers());
   }, [dispatch]);
