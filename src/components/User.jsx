@@ -7,7 +7,7 @@ import useModal from "../core/hooks/useModal";
 const User = ({ id, name, email }) => {
   const [pic, setPic] = useState("");
   const { setOpen, open } = useModal();
-
+  const a = 3;
   const handleLogin = () => {
     FB.login(
       (response) => {
